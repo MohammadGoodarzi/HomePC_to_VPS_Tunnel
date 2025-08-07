@@ -1,0 +1,14 @@
+[Unit]
+Description=Reverse SSH Tunnel to VPS
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+ExecStart=/usr/local/bin/reverse-ssh-tunnel.sh
+Restart=always
+RestartSec=10
+User=mg
+EnvironmentFile=/etc/reverse-ssh.env
+
+[Install]
+WantedBy=multi-user.target
