@@ -35,32 +35,11 @@
     # Copy the public key to the VPS:
     $ ssh-copy-id -p VPS_PORT VPS_USER@$VPS_HOST
 
-# RUN on Homelab:
-    create systemd service to auto start sh file
-    $ sudo cp ./reverse-ssh-tunnel.sh /usr/local/bin/reverse-ssh-tunnel.sh &&
-     sudo cp ./reverse-ssh.service /etc/systemd/system/reverse-ssh.service  &&
-     sudo cp ./reverse-ssh.env  /etc/reverse-ssh.env 
+# RUN on Homelab :
 
-    Make it executable:
-    $ sudo chmod +x /usr/local/bin/reverse-ssh-tunnel.sh
-
-    Start manually:
-    $ sudo systemctl start reverse-ssh.service
-
-    Stop it:
-    $ sudo systemctl stop reverse-ssh.service
-
-    Check status:
-    $ sudo systemctl status reverse-ssh.service
-
-    View logs:
-    $ journalctl -u reverse-ssh.service -f
-
-
-    Reload and Enable Service:
-    $ sudo systemctl daemon-reload
-    sudo systemctl enable reverse-ssh.service
-    sudo systemctl start reverse-ssh.service
+    run this to do every things!:
+    $ chmod +x copy_files_and_restart_service.sh
+    $ bash copy_files_and_restart_service.sh
     
 # RUN on Every Device to Connect:
     $ ssh -p 39191 homeuser@your.vps.ip.address
